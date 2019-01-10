@@ -26,14 +26,9 @@ def selects_most_prominent_color_and_returns_with_count
       bears
     GROUP BY
       color
-    HAVING
-      count(*) = (SELECT
-                    MAX(
-                        (SELECT count(*)
-                          FROM
-                            bears
-                          GROUP BY
-                            color)));"
+    ORDER BY
+      count(*) DESC
+    LIMIT 1;"
 
 end
 
